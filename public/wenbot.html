@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <style type="text/css">
+      button
+      {
+           font-size:30px;
+           font-weight:bold;
+           width:100px;
+           height:100px;
+      }
+      #stop
+      {
+        position:absolute;
+        left:110px;
+        top:110px;
+      }
+      #left
+      {
+        position:absolute;
+        left:0px;
+        top:110px;
+      }
+      #right
+      {
+        position:absolute;
+        left:220px;
+        top:110px;
+      }
+      #forward
+      {
+        position:absolute;
+        left:110px;
+        top:0px;
+      }
+      #back
+      {
+        position:absolute;
+        left:110px;
+        top:220px;
+      }
+   </style>
+  <script>
+    function postToImp(param) 
+    {
+      var path = "https://api.electricimp.com/v1/65361dfe24ee4067/30cfe76dc261805a";
+      $.post(path, { value: param} );
+    }
+  </script>
+</head>
+  <body>
+    <button id="stop" onclick="postToImp(0)">停</button>
+    <button id="forward" onclick="postToImp(1)">前</button>
+    <button id="back" onclick="postToImp(2)">后</button>
+    <button id="left" onclick="postToImp(3)">左</button>
+    <button id="right" onclick="postToImp(4)">右</button>
+  </body>
+</html>
