@@ -1,0 +1,8 @@
+<% content_for :javascript_includes do %>
+   <%= javascript_include_tag "wenbot.js" %>
+ <% end %>
+<button id="stop" onclick="postToImp(0)">停</button>
+<button id="forward" onclick="postToImp(1)">前</button>
+<button id="back" onclick="postToImp(2)">后</button>
+<button id="left" onclick="postToImp(3)">左</button>
+<button id="right" onclick="postToImp(4)">右</button>

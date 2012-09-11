@@ -1,4 +1,16 @@
 LongyiLi::Application.routes.draw do
+  get "wenbot" => 'wenbot#home'
+
+  get "wenbot/stop"
+
+  get "wenbot/forward"
+
+  get "wenbot/backward"
+
+  get "wenbot/left"
+
+  get "wenbot/right"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
