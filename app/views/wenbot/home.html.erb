@@ -1,8 +1,18 @@
 <% content_for :javascript_includes do %>
    <%= javascript_include_tag "wenbot.js" %>
  <% end %>
- <%= button_to '停', wenbot_stop_path, :remote => true, :id => 'stop',    :method => :get %>
- <%= button_to '前', wenbot_forward_path, :remote => true, :id => 'forward', :method => :get %>
- <%= button_to '后', wenbot_backward_path, :remote => true, :id => 'back',    :method => :get %>
- <%= button_to '左', wenbot_left_path, :remote => true, :id => 'left',    :method => :get %>
- <%= button_to '右', wenbot_right_path, :remote => true, :id => 'right',   :method => :get %>
+ <%= link_to wenbot_stop_path, :remote => true, :id => 'stop' do %>
+   <button>停</button>
+ <% end %>
+ <%= link_to wenbot_forward_path, :remote => true, :id => 'forward' do %>
+   <button>前</button>
+ <% end %>
+ <%= link_to wenbot_backward_path, :remote => true, :id => 'back' do %>
+   <button>后</button>
+ <% end %>
+ <%= link_to wenbot_left_path, :remote => true, :id => 'left' do %>
+   <button>左</button>
+ <% end %>
+ <%= link_to wenbot_right_path, :remote => true, :id => 'right' do %>
+   <button>右</button>
+ <% end %>
