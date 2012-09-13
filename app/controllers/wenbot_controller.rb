@@ -5,6 +5,14 @@ class WenbotController < ApplicationController
       @imp_path = "https://api.electricimp.com/v1/65361dfe24ee4067/30cfe76dc261805a"
   end
 
+  before_filter :authenticate
+  protected
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "1" && password == "1"
+    end
+  end
+
   def home
     respond_to do |format|
       format.html  # home.html.erb
