@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014015610) do
+ActiveRecord::Schema.define(:version => 20121014021022) do
 
   create_table "answers", :force => true do |t|
     t.integer  "question_id"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20121014015610) do
 
   create_table "html_codes", :force => true do |t|
     t.string   "labelString"
-    t.text     "CodeString",  :limit => 16777215
+    t.text     "CodeString",  :limit => 2147483647
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(:version => 20121014015610) do
   end
 
   create_table "scale_data", :force => true do |t|
+    t.float    "weightInLb"
+    t.string   "ImpId"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
