@@ -47,8 +47,8 @@ class ScaleDataController < ApplicationController
       weightInLb = arr[1];
       if (impId and weightInLb)
         @scale_datum = ScaleDatum.new()
-        @scale_datum.ImpId = impId
-        @scale_datum.weightInLb = weightInLb
+        @scale_datum.impid = impId
+        @scale_datum.weightinlb = weightInLb
       end
     else
       @scale_datum = ScaleDatum.new(params[:scale_datum])

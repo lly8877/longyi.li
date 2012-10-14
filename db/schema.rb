@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(:version => 20121014021022) do
 
   create_table "scale_data", :force => true do |t|
-    t.float    "weightInLb"
-    t.string   "ImpId"
+    t.float    "weightinlb"
+    t.string   "impid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
