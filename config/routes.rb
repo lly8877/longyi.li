@@ -1,4 +1,6 @@
 LongyiLi::Application.routes.draw do
+  get "scale/show/:id" => "scale#show"
+
   resources :scale_data
 
   get "wenbot" => 'wenbot#home'

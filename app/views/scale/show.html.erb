@@ -1,0 +1,18 @@
+<% unless @stringForJavascript.nil? %>
+<% content_for :javascript_includes do %>
+<!--[if lt IE 9]><%= javascript_include_tag "excanvas.js" %><![endif]-->
+<%= javascript_include_tag "jquery.jqplot.min.js" %>
+<%= javascript_include_tag "plugins/jqplot.dateAxisRenderer.min.js" %>
+<%= stylesheet_link_tag "jquery.jqplot.css" %>
+<% end %>
+<div id="chartdiv" style="height:400px;width:800px; "></div>
+<script language="javascript" type="text/javascript">
+$(document).ready(function(){
+    var plot1 = $.jqplot('chartdiv', [<%= @stringForJavascript %>], {
+      title:'Default Date Axis',
+      axes:{xaxis:{renderer:$.jqplot.DateAxisRenderer}},
+      series:[{lineWidth:4, markerOptions:{style:'circle'}}]
+    });
+});
+</script>
+<% end %>
