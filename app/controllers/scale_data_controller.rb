@@ -40,10 +40,22 @@ class ScaleDataController < ApplicationController
   # POST /scale_data
   # POST /scale_data.xml
   def create
-    @scale_datum = ScaleDatum.new(params[:scale_datum])
+    value = params[:value]
+    if value
+      arr = value.split('_');
+      impId = arr[0];
+      weightInLb = arr[1];
+      if (impId and weightInLb)
+        @scale_datum = ScaleDatum.new()
+        @scale_datum.ImpId = impId
+        @scale_datum.weightInLb = weightInLb
+      end
+    else
+      @scale_datum = ScaleDatum.new(params[:scale_datum])
+    end
 
     respond_to do |format|
-      if @scale_datum.save
+      if @scale_datum and @scale_datum.save
         format.html { redirect_to(@scale_datum, :notice => 'Scale datum was successfully created.') }
         format.xml  { render :xml => @scale_datum, :status => :created, :location => @scale_datum }
       else
