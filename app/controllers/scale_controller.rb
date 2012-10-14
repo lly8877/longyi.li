@@ -1,12 +1,20 @@
 class ScaleController < ApplicationController
   def show
     impId = params[:id]
+    unit = params[:unit]
     @scale_datum = ScaleDatum.where('impid = ?', impId)
     @stringForJavascript = "["
     @scale_datum.each do |scale_data|
       time = scale_data.created_at
-      weightInLb = scale_data.weightinlb
-      string = "['" + time.strftime("%Y-%m-%d %H:%M:%S") + "'," + weightInLb.to_s + "],"
+      weightinlb = scale_data.weightinlb
+      if unit == 'kg'
+        weightinlb = weightinlb * 0.453592
+        @unit = "kg"
+      else
+        @unit = "lb"
+      end
+
+      string = "['" + time.strftime("%Y-%m-%d %H:%M:%S") + "'," + weightinlb.to_s + "],"
       @stringForJavascript = @stringForJavascript + string
     end
 
@@ -15,7 +23,6 @@ class ScaleController < ApplicationController
     else
       @stringForJavascript = nil
     end
-    p @stringForJavascript
 
     respond_to do |format|
       format.html
