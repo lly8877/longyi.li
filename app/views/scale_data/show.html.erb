@@ -10,6 +10,11 @@
   <%= @scale_datum.ImpId %>
 </p>
 
+<p>
+  <b>Time:</b>
+  <%= @scale_datum.created_at %>
+</p>
+
 
 <%= link_to 'Edit', edit_scale_datum_path(@scale_datum) %> |
 <%= link_to 'Back', scale_data_path %>

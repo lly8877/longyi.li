@@ -4,6 +4,7 @@
   <tr>
     <th>Weightinlb</th>
     <th>Impid</th>
+    <th>Time</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= scale_datum.weightInLb %></td>
     <td><%= scale_datum.ImpId %></td>
+    <td><%= scale_datum.created_at %></td>
     <td><%= link_to 'Show', scale_datum %></td>
     <td><%= link_to 'Edit', edit_scale_datum_path(scale_datum) %></td>
     <td><%= link_to 'Destroy', scale_datum, :confirm => 'Are you sure?', :method => :delete %></td>
