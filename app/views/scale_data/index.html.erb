@@ -1,0 +1,21 @@
+<h1>Listing scale_data</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @scale_data.each do |scale_datum| %>
+  <tr>
+    <td><%= link_to 'Show', scale_datum %></td>
+    <td><%= link_to 'Edit', edit_scale_datum_path(scale_datum) %></td>
+    <td><%= link_to 'Destroy', scale_datum, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Scale datum', new_scale_datum_path %>
