@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @question_for_partner.question %>
+</p>
+
+<p>
+  <b>Creator:</b>
+  <%= @question_for_partner.creator %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_for_partner_path(@question_for_partner) %> |
+<%= link_to 'Back', question_for_partners_path %>
