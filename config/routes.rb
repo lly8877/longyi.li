@@ -1,4 +1,6 @@
 LongyiLi::Application.routes.draw do
+  resources :question_for_partners
+
   get "scale/show/:id" => "scale#show"
 
   resources :scale_data
