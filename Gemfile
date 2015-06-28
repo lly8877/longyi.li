@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '4.2.1'
 gem 'rest-client'
 gem 'jquery-rails'
 gem 'pg'
