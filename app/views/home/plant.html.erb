@@ -1,0 +1,62 @@
+<% content_for :javascript_includes do %> 
+<%= javascript_include_tag "chart_js/Chart.min.js" %>
+<%= javascript_include_tag "moment-with-locales.min.js" %>
+
+	<script>    
+	window.onload = function(){
+		var ctx = document.getElementById("canvas").getContext("2d");
+    $.get( "http://dweet.io/get/dweets/for/Longyi_Plant", function( data ) {
+      var gen_data = [];
+      var labels = [];
+      
+      // console.log("yes");
+      var last_d = 2435429410267;
+      data["with"].forEach(function(entry) {
+
+          var d_int = Date.parse(entry["created"])
+          var d = new Date(d_int)
+        
+          if (last_d - d_int > 25*60*1000)
+          {
+            console.log(entry["content"]["humidity"]);
+            console.log(moment(entry["created"]));
+            console.log(entry["created"]);
+            labels.unshift(moment(entry["created"]).fromNow());
+            gen_data.unshift(entry["content"]["humidity"]);
+          }
+          last_d = d_int;
+      });
+  		var lineChartData = {
+  			labels : labels,
+  			datasets : [
+  				{
+  					label: "My Second dataset",
+  					fillColor : "rgba(151,187,205,0.2)",
+  					strokeColor : "rgba(151,187,205,1)",
+  					pointColor : "rgba(151,187,205,1)",
+  					pointStrokeColor : "#fff",
+  					pointHighlightFill : "#fff",
+  					pointHighlightStroke : "rgba(151,187,205,1)",
+  					data : gen_data
+  				}
+  			]
+  		}
+      
+  		window.myLine = new Chart(ctx).Line(lineChartData, {
+  			responsive: true
+  		});
+    });
+	}
+</script>
+<% end %>
+
+<div style="width:100%">
+  <div class="image">
+    <img src="images/mojito.jpg" width="100%">
+  <div>
+	<div>
+		<canvas id="canvas"></canvas>
+	</div>
+</div>
+
+

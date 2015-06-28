@@ -16,6 +16,8 @@ LongyiLi::Application.routes.draw do
   get "wenbot/left"
 
   get "wenbot/right"
+  
+  get "plant" => "home#plant"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
