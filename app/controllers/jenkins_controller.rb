@@ -21,7 +21,7 @@ class JenkinsController < ApplicationController
       RestClient::Request.execute(method: :post,
         url: "http://huantengsmart.com/api/v3/dashboard/generic_module/618/data",
         payload: "id=618&channel=0&value=#{index}",
-        headers: {Authorization: 'token 832c0dcb9db7bf01e338e7b3c0095166'}
+        headers: {Authorization: 'token xxxxxxx'}
       )
     end
     render :nothing => true
